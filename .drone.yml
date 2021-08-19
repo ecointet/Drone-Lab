@@ -1,18 +1,18 @@
 ---
 kind: pipeline
 type: docker
-name: My_2_Steps_Build
+name: 2_Steps_Build
 
 steps:
 
-- name: PreCheck_scripts
+- name: 1_PreCheck_scripts
   image: alpine
   commands:
   - echo Checking if I am anonymous or any operations
   - cat /etc/*-release
   - whoami
 
-- name: Build_The_Code
+- name: 2_Build_The_Code
   image: alpine
   commands:
   - echo A Build Simulation
