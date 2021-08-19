@@ -18,8 +18,8 @@ steps:
   - echo A Build Simulation
   - echo DONE
 
-- name: Send_SMS
-  image: alpine
+- name: 3_Send_SMS
+  image: curlimages/curl
   commands:
   - echo waiting the SMS server to start
   - sleep 15
