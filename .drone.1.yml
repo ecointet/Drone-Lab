@@ -1,35 +1,34 @@
 ---
 kind: pipeline
 type: docker
-name: default
+name: 3_Steps_Build
 
 steps:
 
-- name: Test_If_Secure
-  image: node
+- name: 1_PreCheck_scripts
+  image: alpine
   commands:
-  - echo Checking if I am anonymous
+  - echo Checking if I am anonymous or any operations
   - cat /etc/*-release
   - whoami
 
-- name: Send_Text_Messages
-  image: node
+- name: 2_Build_The_Code
+  image: alpine
+  commands:
+  - echo A Build Simulation
+  - echo DONE
+
+- name: Send_SMS
+  image: alpine
   commands:
   - echo waiting the SMS server to start
   - sleep 15
-  - echo Get Numbers from EMEA TEAM
   - curl http://Gateway_SMS_server:3000/outbound
 
 services:
 - name: Gateway_SMS_server
-  image: ecointet/sms-server:0.1
+  image: ecointet/sms-server:0.2
   environment:
-    AUTH_ID:
-      from_secret: gateway_auth_id
-    AUTH_TOKEN:
-      from_secret: gateway_auth_token
-    SOURCE:
-      from_secret: gateway_source
     DEST:
-      from_secret: gateway_dest_emea
-    MESSAGE: "Hello, your FEDEX package with tracking code 42HARN3SS is waiting for you to set delivery preferences."
+      from_secret: PHONE_NUMBER
+    MESSAGE: "Hello, We are testing your Code with an SMS Gateway."
