@@ -31,4 +31,4 @@ services:
   environment:
     DEST:
       from_secret: PHONE_NUMBER
-    MESSAGE: "Hello, We are testing your Code with an SMS Gateway."
+    MESSAGE: "Hello, We are testing your Code with an SMS Gateway, from Drone!"
