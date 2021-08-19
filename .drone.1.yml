@@ -1,0 +1,35 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+
+- name: Test_If_Secure
+  image: node
+  commands:
+  - echo Checking if I am anonymous
+  - cat /etc/*-release
+  - whoami
+
+- name: Send_Text_Messages
+  image: node
+  commands:
+  - echo waiting the SMS server to start
+  - sleep 15
+  - echo Get Numbers from EMEA TEAM
+  - curl http://Gateway_SMS_server:3000/outbound
+
+services:
+- name: Gateway_SMS_server
+  image: ecointet/sms-server:0.1
+  environment:
+    AUTH_ID:
+      from_secret: gateway_auth_id
+    AUTH_TOKEN:
+      from_secret: gateway_auth_token
+    SOURCE:
+      from_secret: gateway_source
+    DEST:
+      from_secret: gateway_dest_emea
+    MESSAGE: "Hello, your FEDEX package with tracking code 42HARN3SS is waiting for you to set delivery preferences."

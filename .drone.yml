@@ -1,0 +1,19 @@
+---
+kind: pipeline
+type: kubernetes
+name: My_2_Steps_Build
+
+steps:
+
+- name: PreCheck_scripts
+  image: alpine
+  commands:
+  - echo Checking if I am anonymous or any operations
+  - cat /etc/*-release
+  - whoami
+
+- name: Build_The_Code
+  image: alpine
+  commands:
+  - echo A Build Simulation
+  - echo DONE
