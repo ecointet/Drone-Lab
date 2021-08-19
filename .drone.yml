@@ -3,16 +3,8 @@ type: kubernetes
 name: default
 
 steps:
-
-- name: PreCheck_scripts
+- name: greeting
   image: alpine
   commands:
-  - echo Checking if I am anonymous or any operations
-  - cat /etc/*-release
-  - whoami
-
-- name: Build_The_Code
-  image: alpine
-  commands:
-  - echo A Build Simulation
-  - echo DONE
+  - echo hello
+  - echo world
