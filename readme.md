@@ -2,7 +2,7 @@
 The purpose of this lab is to give you a first Drone Experience.
 If you want more details about Drone, please check out the documentation: [https://readme.drone.io/](https://readme.drone.io/)
 
-
+![Drone by Harness](https://github.com/ecointet/Drone-Lab/raw/main/dronebyharness.png)
 
 ## 1 - Fork this repo
 Fork this repo in your Github account.
