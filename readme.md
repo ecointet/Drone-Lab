@@ -15,7 +15,7 @@ Navigate through the Repo you previsouly cloned, and "Activate Repository".
 
 ## 4 - Start your First Build
 
-Use the right-top button "New Build" to create a new build (branch: master).
+Use the right-top button "New Build" to create a new build (branch: main).
 
 # Advanced Lab - Harness Drone
 
