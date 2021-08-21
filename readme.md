@@ -13,7 +13,7 @@ Connect yourself into [https://cloud.drone.io/](https://cloud.drone.io/) and use
 
 ## 3 - Active Repository
 
-Navigate through the Repo you previsouly cloned, and "**Activate Repository**".
+Navigate through the Repo you previsouly forked, and "**Activate Repository**".
 
 ## 4 - Start your First Build
 
