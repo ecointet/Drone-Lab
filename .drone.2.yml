@@ -20,9 +20,14 @@ steps:
 
 - name: 3_Maven_Settings_File
   image: webdevops/go-replace
+  environment:
+    PROXY_USERNAME:
+      from_secret: PROXY_USERNAME
+    PROXY_PASSWORD:
+      from_secret: PROXY_PASSWORD
   commands:
-  - go-replace -s "PROXY_USERNAME" -r ecointet src/settings.xml
-  - echo DONE
+  - go-replace -s "PROXY_USERNAME" -r $PROXY_USERNAME src/settings.xml
+  - go-replace -s "PROXY_PASSWORD" -r $PROXY_PASSWORD src/settings.xml
 
 - name: 4_Wrap-up
   image: alpine
