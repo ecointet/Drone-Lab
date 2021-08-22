@@ -21,6 +21,7 @@ steps:
 - name: 3_Maven_Settings_File
   image: robertstettner/drone-mvn-auth
   pull: true
+  debug: true
   servers:
     - id: release
       username: test
