@@ -46,5 +46,5 @@ steps:
 - name: 4_Wrap-up
   image: alpine
   commands:
-  - cat .m2/settings.xml
   - ls -ls
+  - cat settings.xml
