@@ -19,30 +19,10 @@ steps:
   - echo DONE
 
 - name: 3_Maven_Settings_File
-  image: robertstettner/drone-mvn-auth
-  pull: true
-  debug: true
-  servers:
-    - id: release
-      username: test
-      password: pwd
-    - id: snapshot
-      username: user
-      password: pwd
-  profiles:
-    - id: my-profile
-      repositories:
-        - id: myRepo
-          name: Repository for my libraries
-          url: http://maven.my.com
-          layout: default
-      plugin_repositories:
-        - id: myRepo
-          name: Repository for my libraries
-          url: http://maven.my.com
-          layout: default
-  active_profiles:
-    - my-profile
+  image: webdevops/go-replace
+  commands:
+  - go-replace -s $PROXY_USER -r ecointet src/settings.xml
+  - echo DONE
 
 - name: 4_Wrap-up
   image: alpine

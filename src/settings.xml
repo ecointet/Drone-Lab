@@ -1,0 +1,15 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <proxies>
+        <proxy>
+            <id>baeldung-proxy</id>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>baeldung.proxy.com</host>
+            <port>8080</port>
+            <username>$PROXY_USERNAME</username>
+            <password>$PROXY_PASSWORD</password>
+            <nonProxyHosts>*.baeldung.com|*.apache.org</nonProxyHosts>
+        </proxy>
+    </proxies>
+</settings>
