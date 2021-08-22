@@ -47,4 +47,6 @@ steps:
   image: alpine
   commands:
   - ls -ls
+  - echo toto > test.xml
   - cat settings.xml
+  - cat test.xml
