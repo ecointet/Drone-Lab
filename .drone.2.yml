@@ -19,29 +19,29 @@ steps:
   - echo DONE
 
 - name: 3_Maven_Settings_File
-    image: robertstettner/drone-mvn-auth
-    pull: true
-    servers:
-      - id: release
-        username: ${NEXUS_USERNAME}
-        password: ${NEXUS_PASSWORD}
-      - id: snapshot
-        username: ${NEXUS_USERNAME}
-        password: ${NEXUS_PASSWORD}
-    profiles:
-      - id: my-profile
-        repositories:
-          - id: myRepo
-            name: Repository for my libraries
-            url: http://maven.my.com
-            layout: default
-        plugin_repositories:
-          - id: myRepo
-            name: Repository for my libraries
-            url: http://maven.my.com
-            layout: default
-    active_profiles:
-      - my-profile
+  image: robertstettner/drone-mvn-auth
+  pull: true
+  servers:
+    - id: release
+      username: ${NEXUS_USERNAME}
+      password: ${NEXUS_PASSWORD}
+    - id: snapshot
+      username: ${NEXUS_USERNAME}
+      password: ${NEXUS_PASSWORD}
+  profiles:
+    - id: my-profile
+      repositories:
+        - id: myRepo
+          name: Repository for my libraries
+          url: http://maven.my.com
+          layout: default
+      plugin_repositories:
+        - id: myRepo
+          name: Repository for my libraries
+          url: http://maven.my.com
+          layout: default
+  active_profiles:
+    - my-profile
 
 - name: 4_Wrap-up
   image: alpine
