@@ -7,8 +7,8 @@
             <protocol>http</protocol>
             <host>baeldung.proxy.com</host>
             <port>8080</port>
-            <username>$PROXY_USERNAME</username>
-            <password>$PROXY_PASSWORD</password>
+            <username>PROXY_USERNAME</username>
+            <password>PROXY_PASSWORD</password>
             <nonProxyHosts>*.baeldung.com|*.apache.org</nonProxyHosts>
         </proxy>
     </proxies>

@@ -21,7 +21,7 @@ steps:
 - name: 3_Maven_Settings_File
   image: webdevops/go-replace
   commands:
-  - go-replace -s $PROXY_USER -r ecointet src/settings.xml
+  - go-replace -s "PROXY_USERNAME" -r ecointet src/settings.xml
   - echo DONE
 
 - name: 4_Wrap-up
