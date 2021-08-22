@@ -23,11 +23,11 @@ steps:
   pull: true
   servers:
     - id: release
-      username: ${NEXUS_USERNAME}
-      password: ${NEXUS_PASSWORD}
+      username: test
+      password: pwd
     - id: snapshot
-      username: ${NEXUS_USERNAME}
-      password: ${NEXUS_PASSWORD}
+      username: user
+      password: pwd
   profiles:
     - id: my-profile
       repositories:
@@ -47,6 +47,4 @@ steps:
   image: alpine
   commands:
   - ls -ls
-  - echo toto > test.xml
   - cat settings.xml
-  - cat test.xml
