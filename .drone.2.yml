@@ -1,0 +1,50 @@
+---
+kind: pipeline
+type: docker
+name: Maven_Build
+
+steps:
+
+- name: 1_PreCheck_scripts
+  image: alpine
+  commands:
+  - echo Checking if I am anonymous or any operations
+  - cat /etc/*-release
+  - whoami
+
+- name: 2_Build_The_Code
+  image: alpine
+  commands:
+  - echo A Build Simulation
+  - echo DONE
+
+- name: 3_Maven_Settings_File
+    image: robertstettner/drone-mvn-auth
+    pull: true
+    servers:
+      - id: release
+        username: ${NEXUS_USERNAME}
+        password: ${NEXUS_PASSWORD}
+      - id: snapshot
+        username: ${NEXUS_USERNAME}
+        password: ${NEXUS_PASSWORD}
+    profiles:
+      - id: my-profile
+        repositories:
+          - id: myRepo
+            name: Repository for my libraries
+            url: http://maven.my.com
+            layout: default
+        plugin_repositories:
+          - id: myRepo
+            name: Repository for my libraries
+            url: http://maven.my.com
+            layout: default
+    active_profiles:
+      - my-profile
+
+- name: 4_Wrap-up
+  image: alpine
+  commands:
+  - cat .m2/settings.xml
+  - ls -ls
