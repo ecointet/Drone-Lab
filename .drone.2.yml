@@ -28,4 +28,4 @@ steps:
   image: alpine
   commands:
   - ls -ls
-  - cat settings.xml
+  - cat src/settings.xml
