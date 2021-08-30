@@ -27,8 +27,8 @@ steps:
 
 services:
 - name: Gateway_SMS_server
-  image: ecointet/sms-server:0.2
+  image: ecointet/sms-server:0.3
   environment:
     DEST:
       from_secret: PHONE_NUMBER
-    MESSAGE: "Hello, We are testing your Code with an SMS Gateway, from Drone!"
+    MESSAGE: "Hello, this is a message in your SMS service"
